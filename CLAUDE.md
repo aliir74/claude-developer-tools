@@ -79,3 +79,12 @@ When adding or removing a skill or hook, always update **both** `README.md` and 
 - `SETUP.md` — add/remove the install section for any new external CLI dependency.
 
 Forgetting the README update is a recurring miss; treat it as part of the skill/hook change, not a follow-up.
+
+## Versioning
+
+Bump the plugin version on **every PR** that adds/removes a skill or hook, or changes user-visible behavior. Update **both** files in the same commit:
+
+- `plugins/cortex/.claude-plugin/plugin.json` — `version`
+- `.claude-plugin/marketplace.json` — `version` at the top level AND inside `plugins[0].version`
+
+Use semver: **minor** for new skills/hooks or breaking changes to existing ones, **patch** for doc-only fixes or internal tweaks. Never ship a skill/hook PR without bumping — the marketplace uses the version to decide whether clients pull the update.
