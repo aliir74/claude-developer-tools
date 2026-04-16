@@ -28,6 +28,7 @@ Invoke skills with `/cortex:<skill-name>`.
 |-------|-------------|-------|
 | `babysit-pr` | Monitor a PR — auto-fix CI failures, address review feedback, track deploys | `/loop 5m /cortex:babysit-pr #123` |
 | `codex-ask` | Get a second opinion from OpenAI Codex CLI | `/cortex:codex-ask Is this approach correct?` |
+| `commit-push-pr` | Stage, commit, push, and open a PR/MR in one flow (auto-detects GitHub vs GitLab) | `/cortex:commit-push-pr` |
 | `session-handoff` | Generate structured handoff document for another agent/engineer | `/cortex:session-handoff` |
 
 ### Auto-Triggered
@@ -36,10 +37,18 @@ These skills activate automatically when Claude detects you're working in a rele
 
 | Skill | Triggers When |
 |-------|---------------|
+| `bird-cli` | Interacting with Twitter/X — reading, searching, posting, replies, bookmarks |
 | `clickup-cli` | Running ClickUp operations — tasks, comments, search, sprints, time tracking |
+| `convert-date` | Converting between Shamsi/Jalali and Gregorian calendars |
 | `create-permission-hook` | Creating permission hooks for CLI tools |
 | `deep-research` | Researching topics — "what's the latest on X", "research X for me" |
+| `fetch-raindrop-bookmarks` | Fetching and triaging Raindrop.io bookmarks |
+| `fetch-twitter-bookmarks` | Fetching and triaging Twitter/X bookmarks |
+| `glab-cli` | Running GitLab operations — MRs, pipelines, issues, CI logs |
 | `gws-cli` | Interacting with Google Workspace (Gmail, Calendar, Drive, Sheets) |
+| `python-project-setup` | Setting up new Python projects (uv + ruff + pyright + pytest) |
+| `slack-cli` | Interacting with Slack — reading, searching, sending, reactions |
+| `tgcli` | Interacting with Telegram — reading chats, sending messages, searching |
 
 ## Shared Hooks
 
@@ -58,9 +67,18 @@ Some skills require external CLI tools. See [SETUP.md](SETUP.md) for installatio
 | Skill | Requires |
 |-------|----------|
 | `babysit-pr` | `gh` (GitHub CLI) |
+| `bird-cli` | `bird` (Twitter/X CLI) |
 | `clickup-cli` | `clickup` (ClickUp CLI) |
-| `gws-cli` | `gws` (Google Workspace CLI) |
 | `codex-ask` | `codex` (OpenAI Codex CLI) |
+| `commit-push-pr` | `gh` and/or `glab` (matches the remote) |
+| `convert-date` | `python3` with `jdatetime` |
+| `fetch-raindrop-bookmarks` | Raindrop.io API token |
+| `fetch-twitter-bookmarks` | `bird` (Twitter/X CLI); optional `yt-dlp` for media |
+| `glab-cli` | `glab` (GitLab CLI) |
+| `gws-cli` | `gws` (Google Workspace CLI) |
+| `python-project-setup` | `uv` |
+| `slack-cli` | `agent-slack` (Slack CLI) |
+| `tgcli` | `tgcli` (Telegram CLI) |
 
 ## Contributing
 
