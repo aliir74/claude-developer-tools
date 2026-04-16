@@ -115,6 +115,25 @@ For self-hosted GitLab, point the CLI at the right host:
 glab config set -g host gitlab.example.com
 ```
 
+### snow-cli
+
+Requires the Snowflake CLI:
+
+```bash
+brew install snowflake-cli
+```
+
+Configure a connection (JWT with an RSA key pair is recommended for automation):
+
+```bash
+snow connection add
+snow connection test -c <name>
+```
+
+Snowflake's docs cover RSA key-pair setup: <https://docs.snowflake.com/en/user-guide/key-pair-auth>.
+
+After the connection exists, set `default_connection` in `${CLAUDE_PLUGIN_DATA}/preferences/snow-cli.md` so the skill doesn't need an explicit `-c` flag each invocation.
+
 ### commit-push-pr
 
 Requires `git` plus a host CLI matching the remote:

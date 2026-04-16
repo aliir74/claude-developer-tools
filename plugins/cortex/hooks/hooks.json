@@ -11,6 +11,10 @@
         {
           "type": "command",
           "command": "bash hooks/gws-permission-check.sh"
+        },
+        {
+          "type": "command",
+          "command": "bash hooks/snow-permission-check.sh"
         }
       ]
     }
