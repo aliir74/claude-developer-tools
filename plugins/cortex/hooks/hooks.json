@@ -3,10 +3,16 @@
     {
       "type": "PreToolUse",
       "matcher": "Bash",
-      "hooks": [{
-        "type": "command",
-        "command": "bash hooks/gws-permission-check.sh"
-      }]
+      "hooks": [
+        {
+          "type": "command",
+          "command": "bash hooks/clickup-permission-check.sh"
+        },
+        {
+          "type": "command",
+          "command": "bash hooks/gws-permission-check.sh"
+        }
+      ]
     }
   ]
 }
